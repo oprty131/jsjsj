@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:18
 
 # Install Lua
 RUN apk add --no-cache lua5.3 lua5.3-dev
@@ -9,7 +9,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies (CHANGED: use npm install instead of npm ci)
-RUN npm install --omit=dev
+RUN npm install
 
 # Copy application files
 COPY . .
